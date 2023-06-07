@@ -28,7 +28,9 @@ class Program
             Console.WriteLine($"Searching in... {path}");
             if (File.Exists(path))
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Malware Detected! Attempting Removal Of {0}...", path);
+                Console.ResetColor();
                 File.Delete(path);
                 res = true;
             }
@@ -49,10 +51,12 @@ class Program
 
         if (!res)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Nothing found! :)");
         }
         else
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("It is probably a good idea to change ALL passwords ASAP");
         }
 
